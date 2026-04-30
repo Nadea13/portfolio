@@ -10,13 +10,13 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  locale: 'en',
-  t: translations['en'],
+  locale: 'th',
+  t: translations['th'],
   toggleLanguage: () => {},
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('en');
+  const [locale, setLocale] = useState<Locale>('th');
 
   useEffect(() => {
     const saved = localStorage.getItem('portfolio-lang') as Locale | null;
