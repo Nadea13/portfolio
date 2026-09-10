@@ -28,23 +28,24 @@ export function About() {
           </p>
 
           {/* Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-10">
+            {/* Main Info Card */}
+            <div className="p-6 md:p-8 rounded-2xl bg-card/70 border border-border/60 backdrop-blur-md shadow-lg shadow-black/5">
+              <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-5 text-foreground">
                 {t.about.p1}
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl">
                 {t.about.p2}
               </p>
 
-              <button className="group inline-flex items-center gap-2 px-4 py-2 bg-card border border-border text-sm font-medium rounded-lg hover:border-primary/40 hover:bg-muted transition-all duration-200">
+              <button className="group inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary text-sm font-medium rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-200">
                 {t.about.download_cv}
-                <Download size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
               </button>
             </div>
 
-            {/* Stats */}
-            <div className="flex lg:flex-col gap-8 lg:gap-6 lg:border-l lg:border-border/40 lg:pl-12">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.keyName}
@@ -52,9 +53,10 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="p-5 md:p-6 rounded-2xl bg-card/70 border border-border/60 backdrop-blur-md shadow-lg shadow-black/5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left min-w-[140px]"
                 >
-                  <p className="text-3xl font-bold tracking-tight">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{t.about.stats[stat.keyName]}</p>
+                  <p className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">{stat.value}</p>
+                  <p className="text-xs font-medium text-muted-foreground mt-1 uppercase tracking-wider">{t.about.stats[stat.keyName]}</p>
                 </motion.div>
               ))}
             </div>

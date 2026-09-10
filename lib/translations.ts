@@ -41,12 +41,16 @@ export const translations = {
       code: 'Code',
       items: [
         {
-          title: 'LeagueFlow',
+          title: 'League Flow',
           description: 'A comprehensive football tournament management platform that empowers organizers to create tournaments, manage schedules, track real-time scores, and handle payments professionally in one place.',
         },
         {
           title: 'ÊTRE',
           description: 'A premium single-page E-commerce landing page built with Next.js, featuring a high-end product showcase with a real-time shopping cart system and fully responsive design.',
+        },
+        {
+          title: 'QFlow',
+          description: 'Platform for service businesses, allowing customers to easily book services, pick staff, and pay deposits via PromptPay, with a full-featured management dashboard for store owners.',
         },
       ],
     },
@@ -59,13 +63,14 @@ export const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         ai: 'AI & Machine Learning',
-        tools: 'Tools & DevOps',
+        tools: 'Tools',
       },
     },
 
     // Contact
     contact: {
       title: 'Get in Touch',
+      headline: "Let's talk about your next project",
       subtitle: 'Have a project in mind? I\'d love to hear about it.',
       name: 'Name',
       name_placeholder: 'Your name',
@@ -74,9 +79,13 @@ export const translations = {
       message: 'Message',
       message_placeholder: 'Tell me about your project...',
       send: 'Send Message',
+      sending: 'Sending...',
       info_email: 'Email',
       info_location: 'Location',
       location_value: 'Sisaket, Thailand',
+      status_desc: 'Available for freelance & full-time opportunities',
+      success_title: 'Message Sent!',
+      success_desc: 'Thank you for reaching out. I\'ll get back to you as soon as possible.',
     },
 
     // Footer
@@ -98,7 +107,7 @@ export const translations = {
     // Hero
     hero: {
       greeting: 'สวัสดีครับ ผม Idea',
-      title: 'ผมสร้างสิ่งต่างๆ\nบนเว็บ',
+      title: 'ผมสร้างสิ่งต่างๆ บนเว็บ',
       subtitle: 'นักพัฒนา Full-stack ที่มุ่งเน้นสร้างแอปพลิเคชันที่สะอาด ใช้งานง่าย ด้วยเทคโนโลยีสมัยใหม่',
       cta_work: 'ดูผลงาน',
       cta_contact: 'ติดต่อผม',
@@ -126,12 +135,16 @@ export const translations = {
       code: 'โค้ด',
       items: [
         {
-          title: 'LeagueFlow',
+          title: 'League Flow',
           description: 'แพลตฟอร์มบริหารจัดการการแข่งขันฟุตบอลแบบครบวงจรที่ช่วยให้ผู้จัดการแข่งขันสามารถสร้างทัวร์นาเมนต์, จัดการตารางแข่งขัน, ติดตามผลคะแนนแบบเรียลไทม์, และจัดการระบบชำระเงินได้อย่างมืออาชีพในที่เดียว',
         },
         {
           title: 'ÊTRE',
           description: 'เว็บไซต์ E-commerce Landing Page แบบหน้าเดียวที่พัฒนาด้วย Next.js เน้นการนำเสนอสินค้าแบบพรีเมียมพร้อมระบบตะกร้าสินค้าแบบ Real-time และรองรับการแสดงผลแบบ Responsive ทุกหน้าจอ',
+        },
+        {
+          title: 'QFlow',
+          description: 'แพลตฟอร์มจองคิวนัดหมายออนไลน์สำหรับธุรกิจบริการ ที่ช่วยให้ลูกค้าเลือกบริการ ช่าง เวลา และจ่ายมัดจำผ่าน QR พร้อมเพย์ได้ทันที พร้อมระบบจัดการคิวหลังบ้านสำหรับเจ้าของร้าน',
         },
       ],
     },
@@ -144,14 +157,15 @@ export const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         ai: 'AI & Machine Learning',
-        tools: 'เครื่องมือ & DevOps',
+        tools: 'เครื่องมือ',
       },
     },
 
     // Contact
     contact: {
       title: 'ติดต่อผม',
-      subtitle: 'มีโปรเจกต์ในใจ? ผมยินดีรับฟังครับ',
+      headline: 'มาคุยเรื่องโปรเจกต์ใหม่ของคุณกัน',
+      subtitle: 'มีโปรเจกต์ในใจ? ผมยินดีรับฟังและร่วมงานครับ',
       name: 'ชื่อ',
       name_placeholder: 'ชื่อของคุณ',
       email: 'อีเมล',
@@ -159,9 +173,13 @@ export const translations = {
       message: 'ข้อความ',
       message_placeholder: 'บอกผมเกี่ยวกับโปรเจกต์ของคุณ...',
       send: 'ส่งข้อความ',
+      sending: 'กำลังส่ง...',
       info_email: 'อีเมล',
       info_location: 'ที่อยู่',
       location_value: 'ศรีสะเกษ, ประเทศไทย',
+      status_desc: 'พร้อมรับงานฟรีแลนซ์และงานประจำ',
+      success_title: 'ส่งข้อความเรียบร้อยแล้ว!',
+      success_desc: 'ขอบคุณที่ติดต่อเข้ามาครับ ผมจะตอบกลับโดยเร็วที่สุด',
     },
 
     // Footer
