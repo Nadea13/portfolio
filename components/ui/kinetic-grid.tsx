@@ -304,23 +304,7 @@ export default function KineticGrid({
     [getWarpedPoint, globalColor],
   );
 
-  // ── Animation loop ──────────────────────────────────────────────────────────
-
-  const animate = useCallback(
-    (now: number) => {
-      const m = mouseRef.current;
-      const t = targetMouseRef.current;
-
-      m.x = lerpN(m.x, t.x, LERP_SPEED);
-      m.y = lerpN(m.y, t.y, LERP_SPEED);
-
-      draw(now);
-      rafRef.current = requestAnimationFrame(animate);
-    },
-    [draw],
-  );
-
-  // ── Setup ───────────────────────────────────────────────────────────────────
+  // ── Setup & Animation loop ──────────────────────────────────────────────────
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -357,6 +341,18 @@ export default function KineticGrid({
 
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onClick);
+
+    const animate = (now: number) => {
+      const m = mouseRef.current;
+      const t = targetMouseRef.current;
+
+      m.x = lerpN(m.x, t.x, LERP_SPEED);
+      m.y = lerpN(m.y, t.y, LERP_SPEED);
+
+      draw(now);
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
@@ -367,7 +363,7 @@ export default function KineticGrid({
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [animate]);
+  }, [draw]);
 
   // ── Render ──────────────────────────────────────────────────────────────────
 

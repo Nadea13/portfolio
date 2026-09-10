@@ -21,11 +21,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const saved = localStorage.getItem('portfolio-theme') as Theme | null;
     if (saved) {
-      setTheme(saved);
-      document.documentElement.classList.toggle('light', saved === 'light');
+      // Defer state update to avoid cascading render warning in React 19 / eslint
+      requestAnimationFrame(() => {
+        setTheme(saved);
+        setMounted(true);
+        document.documentElement.classList.toggle('light', saved === 'light');
+      });
+    } else {
+      requestAnimationFrame(() => {
+        setMounted(true);
+      });
     }
   }, []);
 

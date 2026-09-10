@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { translations, type Locale, type Translations } from '@/lib/translations';
 
 interface LanguageContextType {
@@ -16,14 +16,15 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('th');
-
-  useEffect(() => {
-    const saved = localStorage.getItem('portfolio-lang') as Locale | null;
-    if (saved && (saved === 'en' || saved === 'th')) {
-      setLocale(saved);
+  const [locale, setLocale] = useState<Locale>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio-lang') as Locale | null;
+      if (saved && (saved === 'en' || saved === 'th')) {
+        return saved;
+      }
     }
-  }, []);
+    return 'th';
+  });
 
   const toggleLanguage = () => {
     const next = locale === 'en' ? 'th' : 'en';

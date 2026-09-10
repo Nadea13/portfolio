@@ -44,12 +44,11 @@ interface ProjectShowcaseProps {
 
 export function ProjectShowcase({
   projects = defaultProjects,
-  title = "Selected Work",
-  subtitle,
 }: ProjectShowcaseProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
+  const [containerOrigin, setContainerOrigin] = useState({ left: 0, top: 0 })
   const [isVisible, setIsVisible] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number | null>(null)
@@ -79,6 +78,7 @@ export function ProjectShowcase({
   const handleMouseMove = (e: React.MouseEvent) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect()
+      setContainerOrigin({ left: rect.left, top: rect.top })
       setMousePosition({
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
@@ -87,6 +87,10 @@ export function ProjectShowcase({
   }
 
   const handleMouseEnter = (index: number) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      setContainerOrigin({ left: rect.left, top: rect.top })
+    }
     setHoveredIndex(index)
     setIsVisible(true)
   }
@@ -102,8 +106,8 @@ export function ProjectShowcase({
       <div
         className="pointer-events-none fixed z-50 overflow-hidden rounded-2xl shadow-2xl border border-border/60 bg-card/80 backdrop-blur-md"
         style={{
-          left: containerRef.current?.getBoundingClientRect().left ?? 0,
-          top: containerRef.current?.getBoundingClientRect().top ?? 0,
+          left: containerOrigin.left,
+          top: containerOrigin.top,
           transform: `translate3d(${smoothPosition.x + 24}px, ${smoothPosition.y - 120}px, 0)`,
           opacity: isVisible ? 1 : 0,
           scale: isVisible ? 1 : 0.8,
